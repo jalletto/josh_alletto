@@ -1,5 +1,5 @@
 # About Me
-
+![Placeholder](images/me.jpg)
 I'm a Senior Site Reliability Engineer at [Lessonly](https://www.lessonly.com/). I love learning about new things and sharing what I’ve learned through writing and teaching. My writing puts a strong emphasis on audience with thoroughly researched arguments and ideas. I’ve worked on blog campaigns for technical nonprofits, curriculum creation for coding bootcamps, and informational how-to articles for a variety of tech companies.
 
 
