@@ -1,6 +1,6 @@
 # Check Out Some of My Work
 
-## [Using Postgres Row-Level Security in Python and Django](https://pganalyze.com/blog/postgres-row-level-security-django-python)
+## [Postgres Row-Level Security in Python and Django](https://pganalyze.com/blog/postgres-row-level-security-django-python)
 ![Placeholder](images/postgres-row-level-security-django.png){ align=left }
 Postgres introduced row-level security in 2016 to give database administrators a way to limit the rows a user can access, adding an extra layer of data protection. What's nice about RLS is that if a user tries to select or alter a row they don't have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use select * from table_name, and they will only receive the rows they have access to with no knowledge of rows they don't. 
 

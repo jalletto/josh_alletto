@@ -2,9 +2,9 @@ site_name: Josh Alletto
 markdown_extensions:
   - attr_list
 nav:
-  - index.md
-  - about_me.md
-  - my_work.md
+  - Home: index.md
+  - About Me: about_me.md
+  - My Work: my_work.md
 theme:
   icon:
     logo: material/pen
