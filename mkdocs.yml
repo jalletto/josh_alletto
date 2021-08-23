@@ -4,7 +4,6 @@ markdown_extensions:
 nav:
   - index.md
   - about_me.md
-  - what_we_do.md
   - my_work.md
 theme:
   icon:
