@@ -5,6 +5,7 @@ nav:
   - Home: index.md
   - About Me: about_me.md
   - My Work: my_work.md
+  # - Contact Me: contact_me.md
 theme:
   icon:
     logo: material/pen
