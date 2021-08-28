@@ -212,21 +212,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../about_me/" class="md-nav__link">
-        About Me
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -262,8 +247,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postgres-row-level-security-in-python-and-django" class="md-nav__link">
-    Postgres Row-Level Security in Python and Django
+  <a href="#postgresql-partitioning-in-django" class="md-nav__link">
+    PostgreSQL Partitioning in Django
   </a>
   
 </li>
@@ -271,6 +256,13 @@
         <li class="md-nav__item">
   <a href="#python-code-coverage-using-github-actions-and-codecov" class="md-nav__link">
     Python Code Coverage Using GitHub Actions and Codecov
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgres-row-level-security-in-python-and-django" class="md-nav__link">
+    Postgres Row-Level Security in Python and Django
   </a>
   
 </li>
@@ -304,6 +296,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-me/" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -330,8 +337,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postgres-row-level-security-in-python-and-django" class="md-nav__link">
-    Postgres Row-Level Security in Python and Django
+  <a href="#postgresql-partitioning-in-django" class="md-nav__link">
+    PostgreSQL Partitioning in Django
   </a>
   
 </li>
@@ -339,6 +346,13 @@
         <li class="md-nav__item">
   <a href="#python-code-coverage-using-github-actions-and-codecov" class="md-nav__link">
     Python Code Coverage Using GitHub Actions and Codecov
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgres-row-level-security-in-python-and-django" class="md-nav__link">
+    Postgres Row-Level Security in Python and Django
   </a>
   
 </li>
@@ -378,14 +392,18 @@
                 
                 
                 <h1 id="check-out-some-of-my-work">Check Out Some of My Work</h1>
-<h2 id="postgres-row-level-security-in-python-and-django"><a href="https://pganalyze.com/blog/postgres-row-level-security-django-python">Postgres Row-Level Security in Python and Django</a></h2>
-<p><img align="left" alt="Placeholder" src="../images/postgres-row-level-security-django.png" />
-Postgres introduced row-level security in 2016 to give database administrators a way to limit the rows a user can access, adding an extra layer of data protection. What's nice about RLS is that if a user tries to select or alter a row they don't have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use select * from table_name, and they will only receive the rows they have access to with no knowledge of rows they don't. </p>
-<p><a class="md-button" href="https://pganalyze.com/blog/postgres-row-level-security-django-python">Keep reading</a></p>
+<h2 id="postgresql-partitioning-in-django"><a href="https://pganalyze.com/blog/postgresql-partitioning-django">PostgreSQL Partitioning in Django</a></h2>
+<p><img align="left" alt="Placeholder" src="../images/postgres_partitions.png" />
+Postgres 10 introduced partitioning to improve performance for very large database tables. You will typically start to see the performance benefits with tables of 1 million or more records, but the technical complexity usually doesn’t pay off unless you’re dealing with hundreds of gigabytes of data.</p>
+<p><a class="md-button" href="https://pganalyze.com/blog/postgresql-partitioning-django">Keep reading</a></p>
 <h2 id="python-code-coverage-using-github-actions-and-codecov"><a href="https://about.codecov.io/blog/python-code-coverage-using-github-actions-and-codecov/">Python Code Coverage Using GitHub Actions and Codecov</a></h2>
 <p><img align="left" alt="Placeholder" src="../images/codecove.png" />
 In this tutorial, we’ll use a Python package called Coverage to generate a code coverage report locally. Then we’ll utilize the power of Codecov along with GitHub Actions to integrate our coverage report into our pull requests. The code repository is available here or you can follow along to replicate it yourself. </p>
 <p><a class="md-button" href="https://about.codecov.io/blog/python-code-coverage-using-github-actions-and-codecov/">Keep reading</a></p>
+<h2 id="postgres-row-level-security-in-python-and-django"><a href="https://pganalyze.com/blog/postgres-row-level-security-django-python">Postgres Row-Level Security in Python and Django</a></h2>
+<p><img align="left" alt="Placeholder" src="../images/postgres-row-level-security-django.png" />
+Postgres introduced row-level security in 2016 to give database administrators a way to limit the rows a user can access, adding an extra layer of data protection. What's nice about RLS is that if a user tries to select or alter a row they don't have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use <code>select * from table_name</code>, and they will only receive the rows they have access to with no knowledge of rows they don't. </p>
+<p><a class="md-button" href="https://pganalyze.com/blog/postgres-row-level-security-django-python">Keep reading</a></p>
 <h2 id="creating-custom-postgres-data-types-in-rails"><a href="https://pganalyze.com/blog/custom-postgres-data-types-ruby-rails">Creating Custom Postgres Data Types in Rails</a></h2>
 <p><img align="left" alt="Placeholder" src="../images/rails_custom_data_types.svg" />
 Postgres ships with the most widely used common data types, like integers and text, built in, but it's also flexible enough to allow you to define your own data types if your project demands it. Say you're saving price data and you want to ensure that it’s never negative. You might create a not_negative_int type that you could then use to define columns on multiple tables. Or maybe you have data that makes more sense grouped together, like GPS coordinates. </p>
@@ -417,7 +435,7 @@ No matter how you decide to define your datatype, Django has the functionality t
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../about_me/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About Me" rel="prev">
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -426,11 +444,26 @@ No matter how you decide to define your datatype, Django has the functionality t
               <span class="md-footer__direction">
                 Previous
               </span>
-              About Me
+              Home
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../about-me/" class="md-footer__link md-footer__link--next" aria-label="Next: About Me" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About Me
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
