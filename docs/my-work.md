@@ -1,16 +1,23 @@
 # Check Out Some of My Work
 
-## [Postgres Row-Level Security in Python and Django](https://pganalyze.com/blog/postgres-row-level-security-django-python)
-![Placeholder](images/postgres-row-level-security-django.png){ align=left }
-Postgres introduced row-level security in 2016 to give database administrators a way to limit the rows a user can access, adding an extra layer of data protection. What's nice about RLS is that if a user tries to select or alter a row they don't have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use select * from table_name, and they will only receive the rows they have access to with no knowledge of rows they don't. 
+## [PostgreSQL Partitioning in Django](https://pganalyze.com/blog/postgresql-partitioning-django)
+![Placeholder](images/postgres_partitions.png){ align=left }
+Postgres 10 introduced partitioning to improve performance for very large database tables. You will typically start to see the performance benefits with tables of 1 million or more records, but the technical complexity usually doesn’t pay off unless you’re dealing with hundreds of gigabytes of data.
 
-[Keep reading](https://pganalyze.com/blog/postgres-row-level-security-django-python){.md-button }
+[Keep reading](https://pganalyze.com/blog/postgresql-partitioning-django){.md-button }
 
 ## [Python Code Coverage Using GitHub Actions and Codecov](https://about.codecov.io/blog/python-code-coverage-using-github-actions-and-codecov/)
 ![Placeholder](images/codecove.png){ align=left }
 In this tutorial, we’ll use a Python package called Coverage to generate a code coverage report locally. Then we’ll utilize the power of Codecov along with GitHub Actions to integrate our coverage report into our pull requests. The code repository is available here or you can follow along to replicate it yourself. 
 
 [Keep reading](https://about.codecov.io/blog/python-code-coverage-using-github-actions-and-codecov/){.md-button }
+
+## [Postgres Row-Level Security in Python and Django](https://pganalyze.com/blog/postgres-row-level-security-django-python)
+![Placeholder](images/postgres-row-level-security-django.png){ align=left }
+Postgres introduced row-level security in 2016 to give database administrators a way to limit the rows a user can access, adding an extra layer of data protection. What's nice about RLS is that if a user tries to select or alter a row they don't have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use `select * from table_name`, and they will only receive the rows they have access to with no knowledge of rows they don't. 
+
+[Keep reading](https://pganalyze.com/blog/postgres-row-level-security-django-python){.md-button }
+
 
 ## [Creating Custom Postgres Data Types in Rails](https://pganalyze.com/blog/custom-postgres-data-types-ruby-rails)
 ![Placeholder](images/rails_custom_data_types.svg){ align=left }
