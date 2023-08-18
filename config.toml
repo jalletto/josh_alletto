@@ -2,6 +2,7 @@ baseURL = 'https://joshalletto.com/'
 languageCode = 'en-us'
 title = 'Josh Alletto Personal Blog'
 theme = "hello-friend"
+publishDir = "docs"
 
 [params]
   # dir name of your blog content (default is `content/posts`).
