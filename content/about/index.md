@@ -4,6 +4,8 @@ draft: false
 markup: html
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <p>
 I like to write, and code, and write about coding.
 </p>
