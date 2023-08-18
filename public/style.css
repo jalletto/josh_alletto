@@ -1,0 +1,17 @@
+/* Put Custom CSS Here. It Will Override the Theme */
+
+.social-icons {
+    display: flex;
+    gap: 20px; /* Adjust as needed */
+  }
+  
+  .social-icons a {
+    color: #333; /* Icon color */
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  }
+  
+  .social-icons a:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  
