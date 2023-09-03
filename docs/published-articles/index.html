@@ -12,7 +12,7 @@
 <meta
   name="description"
   content="Let&amp;rsquo;s Learn About Systemd Units # Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
-Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor."
+Postgres Row-Level Security in Python and Django # What&amp;rsquo;s nice about RLS is that if a user tries to select or alter a row they don&amp;rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error."
 />
 <meta
   name="keywords"
@@ -49,17 +49,16 @@ Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, fro
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Published Articles"/>
 <meta name="twitter:description" content="Let&rsquo;s Learn About Systemd Units # Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
-Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor."/>
+Postgres Row-Level Security in Python and Django # What&rsquo;s nice about RLS is that if a user tries to select or alter a row they don&rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error."/>
 
 
 
 <meta property="og:title" content="Published Articles" />
 <meta property="og:description" content="Let&rsquo;s Learn About Systemd Units # Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
-Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor." />
+Postgres Row-Level Security in Python and Django # What&rsquo;s nice about RLS is that if a user tries to select or alter a row they don&rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://joshalletto.com/published-articles/" /><meta property="article:section" content="" />
 
-<meta property="og:site_name" content="Josh Alletto" />
 
 
 
@@ -176,9 +175,14 @@ Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, fro
   <a href="#lets-learn-about-systemd-unitshttpsearthlydevblogsystemd" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.</p>
-<h2 id="nix-turns-20-what-the-hell-is-it-httpsearthlydevblogwhat-is-nix">
-  <a href="https://earthly.dev/blog/what-is-nix/">Nix Turns 20. What the Hell Is It? </a>
-  <a href="#nix-turns-20-what-the-hell-is-it-httpsearthlydevblogwhat-is-nix" class="h-anchor" aria-hidden="true">#</a>
+<h2 id="postgres-row-level-security-in-python-and-djangohttpspganalyzecomblogpostgres-row-level-security-django-python">
+  <a href="https://pganalyze.com/blog/postgres-row-level-security-django-python">Postgres Row-Level Security in Python and Django</a>
+  <a href="#postgres-row-level-security-in-python-and-djangohttpspganalyzecomblogpostgres-row-level-security-django-python" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>What&rsquo;s nice about RLS is that if a user tries to select or alter a row they don&rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use <code>select * from table_name</code>, and they will only receive the rows they have access to with no knowledge of rows they don&rsquo;t.</p>
+<h2 id="nix-turns-20-what-the-hell-is-ithttpsearthlydevblogwhat-is-nix">
+  <a href="https://earthly.dev/blog/what-is-nix/">Nix Turns 20. What the Hell Is It?</a>
+  <a href="#nix-turns-20-what-the-hell-is-ithttpsearthlydevblogwhat-is-nix" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor. From these discussions I learned that, though Nix can refer to many different technologies, there’s a central idea that’s at the core of everything.</p>
 <h2 id="building-pong-in-your-terminalhttpsearthlydevblogpongo">
@@ -196,21 +200,26 @@ Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, fro
   <a href="#postgresql-partitioning-in-djangohttpspganalyzecomblogpostgresql-partitioning-django" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>Postgres 10 introduced partitioning to improve performance for very large database tables. You will typically start to see the performance benefits with tables of 1 million or more records, but the technical complexity usually doesn’t pay off unless you’re dealing with hundreds of gigabytes of data.</p>
+<h2 id="make-a-multiplayer-game-with-kaboomjs-and-heroic-labshttpsblogreplitcommake-a-multiplayer-game-with-kaboom-and-heroic-labs">
+  <a href="https://blog.replit.com/make-a-multiplayer-game-with-kaboom-and-heroic-labs">Make a Multiplayer Game with Kaboom.js and Heroic Labs</a>
+  <a href="#make-a-multiplayer-game-with-kaboomjs-and-heroic-labshttpsblogreplitcommake-a-multiplayer-game-with-kaboom-and-heroic-labs" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>With Kaboom, a JavaScript game-programming library that helps you quickly make fun games, and Nakama, an open source distributed server created by Heroic Labs, you can easily create a multiplayer game that runs on Replit.</p>
 <h2 id="github-actions-and-codecovhttpsaboutcodecovioblogpython-code-coverage-using-github-actions-and-codecov">
   <a href="https://about.codecov.io/blog/python-code-coverage-using-github-actions-and-codecov/">GitHub Actions and Codecov</a>
   <a href="#github-actions-and-codecovhttpsaboutcodecovioblogpython-code-coverage-using-github-actions-and-codecov" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>In this tutorial, we’ll use a Python package called Coverage to generate a code coverage report locally. Then we’ll utilize the power of Codecov along with GitHub Actions to integrate our coverage report into our pull requests. The code repository is available here or you can follow along to replicate it yourself.</p>
-<h2 id="postgres-row-level-security-in-python-and-djangohttpspganalyzecomblogpostgres-row-level-security-django-python">
-  <a href="https://pganalyze.com/blog/postgres-row-level-security-django-python">Postgres Row-Level Security in Python and Django</a>
-  <a href="#postgres-row-level-security-in-python-and-djangohttpspganalyzecomblogpostgres-row-level-security-django-python" class="h-anchor" aria-hidden="true">#</a>
+<h2 id="oomkilled-troubleshooting-kubernetes-memory-requests-and-limitshttpswwwairplanedevblogoomkilled-troubleshooting-kubernetes-memory-requests-and-limits">
+  <a href="https://www.airplane.dev/blog/oomkilled-troubleshooting-kubernetes-memory-requests-and-limits">OOMKilled: troubleshooting Kubernetes memory requests and limits</a>
+  <a href="#oomkilled-troubleshooting-kubernetes-memory-requests-and-limitshttpswwwairplanedevblogoomkilled-troubleshooting-kubernetes-memory-requests-and-limits" class="h-anchor" aria-hidden="true">#</a>
 </h2>
-<p>Postgres introduced row-level security in 2016 to give database administrators a way to limit the rows a user can access, adding an extra layer of data protection. What&rsquo;s nice about RLS is that if a user tries to select or alter a row they don&rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error. This way, a user can use <code>select * from table_name</code>, and they will only receive the rows they have access to with no knowledge of rows they don&rsquo;t.</p>
+<p>In this article, we’ll take a closer look at the OOMKilled error in K8s, why this error occurs, how to troubleshoot it when it happens, and what steps you can take to help prevent it.</p>
 <h2 id="creating-custom-postgres-data-types-in-railshttpspganalyzecomblogcustom-postgres-data-types-ruby-rails">
   <a href="https://pganalyze.com/blog/custom-postgres-data-types-ruby-rails">Creating Custom Postgres Data Types in Rails</a>
   <a href="#creating-custom-postgres-data-types-in-railshttpspganalyzecomblogcustom-postgres-data-types-ruby-rails" class="h-anchor" aria-hidden="true">#</a>
 </h2>
-<p>Postgres ships with the most widely used common data types, like integers and text, built in, but it&rsquo;s also flexible enough to allow you to define your own data types if your project demands it. Say you&rsquo;re saving price data and you want to ensure that it’s never negative. You might create a not_negative_int type that you could then use to define columns on multiple tables. Or maybe you have data that makes more sense grouped together, like GPS coordinates.</p>
+<p>Postgres ships with the most widely used common data types, like integers and text, built in, but it&rsquo;s also flexible enough to allow you to define your own data types if your project demands it.</p>
 <h2 id="how-to-write-effective-technical-articleshttpsdraftdevlearnpoststechnical-tutorials">
   <a href="https://draft.dev/learn/posts/technical-tutorials">How to Write Effective Technical Articles</a>
   <a href="#how-to-write-effective-technical-articleshttpsdraftdevlearnpoststechnical-tutorials" class="h-anchor" aria-hidden="true">#</a>
