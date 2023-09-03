@@ -29,18 +29,22 @@ publishDir = "docs"
 [languages]
   [languages.en]
     title = "Josh Alletto"
-    subtitle = "Blog"
-    keywords = ""
     copyright = ""
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
+    
+
+    [languages.en.params]
+      minuteReadingTime = "min read"
+      writtenBy = "Written by"
+      readOtherPosts = "Read other posts"
+      readMore = "Read more"
+      dateFormatList = "2006-01-02"
+      menuMore = "Show more"
+      subtitle = "Blog"
+      keywords = ""
+      newerPosts = "Newer posts"
+      olderPosts = "Older posts"
+      dateFormatSingle = "2006-01-02"
+   
     # leave empty to disable, enter display text to enable
     # lastModDisplay = ""
 
@@ -61,4 +65,3 @@ publishDir = "docs"
         identifier = "published-articles"
         name = "Published Articles"
         url = "/published-articles"
-      
