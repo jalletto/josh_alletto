@@ -2,17 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Josh Alletto</title>
+    
+    
+    
     <link>https://joshalletto.com/</link>
     <description>Recent content on Josh Alletto</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://joshalletto.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 28 Aug 2023 11:10:34 -0500</lastBuildDate>
+    
+	<atom:link href="https://joshalletto.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plexing and Torrenting on the Same Server: Let&#39;s Docker Network</title>
+      <link>https://joshalletto.com/posts/plex-setup/</link>
+      <pubDate>Mon, 28 Aug 2023 11:10:34 -0500</pubDate>
+      
+      <guid>https://joshalletto.com/posts/plex-setup/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it.
+          
+        
+        </description>
+    </item>
+    
     <item>
       <title>About Me</title>
       <link>https://joshalletto.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://joshalletto.com/about/</guid>
-      <description> I like to write, and code, and write about coding. </description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+           I like to write, and code, and write about coding. 
+          
+        
+        </description>
     </item>
     
     <item>
@@ -21,8 +60,19 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://joshalletto.com/published-articles/</guid>
-      <description>Let&amp;rsquo;s Learn About Systemd Units Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
-Nix Turns 20. What the Hell Is It? I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor.</description>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Let&amp;rsquo;s Learn About Systemd Units # Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
+Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor.
+          
+        
+        </description>
     </item>
     
   </channel>

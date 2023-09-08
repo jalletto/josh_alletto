@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Josh Alletto</title>
+    
+    
+    
+    <link>https://joshalletto.com/posts/</link>
+    <description>Recent content in Posts on Josh Alletto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 28 Aug 2023 11:10:34 -0500</lastBuildDate>
+    
+	<atom:link href="https://joshalletto.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plexing and Torrenting on the Same Server: Let&#39;s Docker Network</title>
+      <link>https://joshalletto.com/posts/plex-setup/</link>
+      <pubDate>Mon, 28 Aug 2023 11:10:34 -0500</pubDate>
+      
+      <guid>https://joshalletto.com/posts/plex-setup/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

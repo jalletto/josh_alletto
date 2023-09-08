@@ -50,7 +50,7 @@ publishDir = "docs"
 
     [languages.en.params.logo]
       logoText = "Josh Alletto"
-      logoHomeLink = "/published-articles"
+      logoHomeLink = "/"
     # or
     #
     # path = "/img/your-example-logo.svg"

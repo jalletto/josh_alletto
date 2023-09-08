@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Plexing and Torrenting on the Same Server: Let&#39;s Docker Network ::
+        Josh Alletto — Blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://joshalletto.com/posts/plex-setup/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://joshalletto.com/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://joshalletto.com/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://joshalletto.com/img/favicon.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Plexing and Torrenting on the Same Server: Let&#39;s Docker Network"/>
+<meta name="twitter:description" content="One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it."/>
+
+
+
+<meta property="og:title" content="Plexing and Torrenting on the Same Server: Let&#39;s Docker Network" />
+<meta property="og:description" content="One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joshalletto.com/posts/plex-setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-28T11:10:34-05:00" />
+<meta property="article:modified_time" content="2023-08-28T11:10:34-05:00" />
+
+
+
+
+
+
+  </head>
+  <body class="light-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Josh Alletto</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/published-articles">Published Articles</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/published-articles">Published Articles</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Plexing and Torrenting on the Same Server: Let&rsquo;s Docker Network</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          2023-08-28
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it. My mom didn&rsquo;t want me calling and disturbing his family on a holiday though, so I&rsquo;d have to wait a hundred thousand years (24hrs) to tell him about it.</p>
+<p>But as it turned out, a Christmas miracle was about to take place, because an hour later, Tom ended up calling me. He didn&rsquo;t even say hi when I got to the phone. &ldquo;Josh, guess what, I got a Sega!&rdquo; he said. We both screamed and then I said, &ldquo;Tom, guess what, I got one too!&rdquo; and then more yelling.</p>
+<p>All of this is to say that this post isn&rsquo;t a tutorial, it&rsquo;s just me screaming out to anyone who might possibly care, &ldquo;I set up a new Plex server that also does torrents over VPN!&rdquo; A bit more of a mouthful than &ldquo;I got a sega&rdquo;, but for me, just as exciting.</p>
+<h2 id="the-old-way">
+  The Old Way
+  <a href="#the-old-way" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Until recently, I had been running my Plex media server on an old laptop. This had two significant downsides. First of all, I often wanted to use the laptop, but could not because it was sitting up on a shelf connected to ethernet and an external hard drive. Second, sometimes I wanted to use the laptop to download legal torrents of Linux distributions and only legal torrents of Linux distributions. For personal reasons that are not your business, I preferred that these distros were on the same machine as the Plex. The problem was that whenever I wanted to torrent something, I needed to turn on my VPN which made the Plex unusable. Quite the bummer when all you want to do while waiting for a torrent to download is watch another episode of Max Headroom.</p>
+<p>So I needed a better solution. I had two criteria.</p>
+<ol>
+<li>
+<p>The new way needed to be cheap. I wasn&rsquo;t looking to buy an expensive new computer. Running the Plex isn&rsquo;t that demanding of a job, so I knew I could get away with a low-powered machine.</p>
+</li>
+<li>
+<p>I wanted to be able to download torrents on the same machine, over VPN, without interrupting the Plex usage.</p>
+</li>
+</ol>
+<p>These two criteria had two simple solutions.</p>
+<ol>
+<li>
+<p>I would use an old used mini PC as a dedicated server, freeing up my laptop.</p>
+</li>
+<li>
+<p>I would run everything in Docker, which would allow me to download torrents over my VPN without interfering with my Plex setup (More on this in a bit).</p>
+</li>
+</ol>
+<p>I watched a lot of YouTube videos and read a lot of message boards to figure out a solution that worked for me. Here&rsquo;s what I learned and how my setup ended up looking in the end.</p>
+<h2 id="a-70-computer">
+  A $70 Computer
+  <a href="#a-70-computer" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p><img src="pi.png" alt="PI (1998)"></p>
+<p>First, I needed to choose a new computer. This is an area where I know very little. I&rsquo;ve never built a PC and my hardware knowledge is embarrassing, at least when it comes to understanding how much of what hardware you need to run what software. But this was also a great opportunity to start learning.</p>
+<p>I had tried once, briefly, to set up a Plex server on an old Raspberry Pi, but I didn&rsquo;t get too far. One problem was that I just found using the Pi to be too slow. It was an older model, and I had Raspbian on it, and it just seemed to take forever to do anything. I&rsquo;m sure the new ones are better, but, since I was hoping for something that could run several applications at once, I wanted something a bit more powerful and a bit more customizable.</p>
+<p>And also cheaper.</p>
+<p><img src="hp.jpg" alt="HP EliteDesk 800"></p>
+<p>I landed on an HP EliteDesk 800 G3 35W Mini PC. It&rsquo;s got an Intel i5. I chose this mainly because of <a href="https://www.youtube.com/watch?v=amVP96OYfUg&amp;list=WL&amp;index=12&amp;t=206s">this great video</a>, and also because it was small and the price was right. I found one for $70 on eBay that came with the power adapter, 8 gigs of RAM, and nothing else. This was fine. I keep all my Plex media on an external hard drive, so I just added a 500GB SSD for around $40. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>I&rsquo;ve been running this setup for a few weeks now and it works great. I&rsquo;ve only got a few other remote users connecting to the Plex right now, and they&rsquo;ve been able to stream just fine with no interruptions.</p>
+<h3 id="my-80-mistake">
+  My $80 Mistake
+  <a href="#my-80-mistake" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>I wish I could say I set this whole thing up, all in, for $110, but eventually, I ended up upgrading the RAM to 32 GB. This turned out to be completely unnecessary. Why did I do this? Well, I had noticed that watching videos worked fine with 8 GB of RAM, but it sometimes took close to a minute for the video to load initially, even on my local network. I assumed, <strong>based on nothing</strong>, that more RAM would help.</p>
+<p>This didn&rsquo;t turn out to be even remotely true. It&rsquo;s funny how you can get an idea in your head and just pursue it full force with no real reasoning behind why you are doing it. In reality, I think the latency is probably just due to my external drive taking time to spin up after it&rsquo;s been idle for a while. Now that I&rsquo;ve been paying more attention, it seems like the machine never uses more than a few gigs RAM, even when downloading several large torrent files at once. If I had this to do again, I&rsquo;d stick with the 8 GB it came with. Maybe I&rsquo;d buy an additional 8 just to be safe, as I do intend on spinning up more docker services in the future, but as it stands right now, upgrading to 32 seems to have been massive overkill and a huge waste of money.</p>
+<h2 id="docker-networking-with-a-vpn">
+  Docker Networking With a VPN
+  <a href="#docker-networking-with-a-vpn" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Probably the most interesting part of my setup, to me anyway, was that I got to learn a lot more about Docker Networking. In particular, that you can set a container&rsquo;s network to be another container, which is pretty kick-ass.</p>
+<h3 id="plex">
+  Plex
+  <a href="#plex" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>So there are two parts to my setup. First, the Plex. Luckily, Plex has an <a href="https://hub.docker.com/r/plexinc/pms-docker/">official docker image</a>, so setting it up was extremely simple. For now, I have the Plex using my host network. I&rsquo;ve seen a lot of people saying you should never use the host network. From what I can tell, the biggest reason is to avoid conflicts with other services that might need to use the same ports. Since I don&rsquo;t have anything else running at the moment that conflicts, this was just the fastest and easiest way to get up and running quickly, so that&rsquo;s what I&rsquo;m using right now. Eventually, I&rsquo;m going to switch to the Macvlan Networking setup that Plex suggests using, but for now, it is what it is.</p>
+<h3 id="torrents">
+  Torrents
+  <a href="#torrents" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>The other part of my setup is the VPN + torrenting part. Originally, I had thought maybe I&rsquo;d have to create my own image, possibly pulling from an existing VPN image or something like that.</p>
+<p>The actual solution turned out to be much easier once I realized you can set a container&rsquo;s network to just be another container. Literally, <code>docker run --network container:nameOfVPNContainer</code>. Pretty cool.</p>
+<p>I use transmission for torrents. <a href="https://www.linuxserver.io/">LinuxServer.io</a> has a very popular and well-maintained <a href="https://hub.docker.com/r/linuxserver/transmission">image</a>, making this part a breeze.</p>
+<p>I tried running a dedicated NordVPN container, but I had some issues with it that I already forgot about and so can not share with you. What I can tell you is that, eventually, I found <a href="https://hub.docker.com/r/qmcgaw/gluetun">gluetun</a>, and everything just fell into place after that. Gluetun is an all-purpose VPN client. It works with dozens of VPN providers. All you need to do is provide it with some credentials, and Gluetun sets everything else up for you. So far it&rsquo;s been an excellent solution for me. There&rsquo;s also a great getting started video right on the GitHub page.</p>
+<p>The only small issue I had was related to NordVPN. You can&rsquo;t use your normal username and password to log in remotely, which is a good thing. Instead, <strong>you need to create a special service token and password</strong>. That&rsquo;s not really an issue. The issue was that it wasn&rsquo;t super clear on their site that you needed to do this, or even how you are supposed to do this <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. I had to read about it on Stackoverflow. In fact, NordVPN surprisingly didn&rsquo;t have much on their site about running a VPN in a Docker container. The most I could find was this <a href="https://support.nordvpn.com/Connectivity/Linux/1507838432/How-to-build-the-NordVPN-Docker-image.htm">brief page</a> about running the CLI, but nothing related to what I wanted to do, which was to have other containers be able to connect to the VPN.</p>
+<p>Situations like this always make me wonder if this is a lack of documentation on their part, or just an extreme lack of knowledge on my part.</p>
+<p>Either way, once all this was set up everything started working exactly as I&rsquo;d hoped. I could download Legal Linux torrents with ease, over VPN, and watch 90&rsquo;s bullshit Sci-Fi TV at the same time. Dreams really do come true.</p>
+<p>And, bonus, I&rsquo;ve freed my laptop, and am currently using it to write this post. I&rsquo;ll let you decide if that&rsquo;s a good thing or not.</p>
+<p>Here&rsquo;s my completed Docker Compose file for the torrent + VPN part, if you are interested. I&rsquo;ve got the Plex set up in a different file, but that&rsquo;s just copy and pasted from the plex site.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">gluetun</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">gluetun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">qmcgaw/gluetun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cap_add</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">NET_ADMIN</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">devices</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/dev/net/tun:/dev/net/tun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">9091</span>:<span style="color:#ae81ff">9091</span> <span style="color:#75715e"># Web UI port</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">51413</span>:<span style="color:#ae81ff">51413</span> <span style="color:#75715e"># Torrent port (TCP)</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">51413</span>:<span style="color:#ae81ff">51413</span><span style="color:#ae81ff">/udp</span> <span style="color:#75715e"># Torrent port (UDP)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">~/gluetun:/gluetun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">CITY=&#34;Add Some Cities Here&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">VPN_SERVICE_PROVIDER=nordvpn</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">VPN_TYPE=openvpn</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">OPENVPN_USER=replace with your user</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">OPENVPN_PASSWORD=replace with your password</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">transmission</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/transmission</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">transmission</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">container:gluetun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PUID=1000</span> <span style="color:#75715e"># User id</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PGID=1000</span> <span style="color:#75715e"># Group id</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=GMT-5# Your current timezone</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/transmission/docker/config/Transmission:/config</span> <span style="color:#75715e"># Change this to your docker config folder</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/transmission/downloads:/downloads/complete</span> <span style="color:#75715e"># Change this to your download folder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span> <span style="color:#75715e"># This makes sure that the application restarts when it crashes</span>
+</span></span></code></pre></div><p>One last note to mention, whenever you use a container as a network, you&rsquo;ll need to move any port mappings from the client container (in this case transmission), up to the network container (in this case Gluetun).</p>
+<h2 id="what-i-learned">
+  What I Learned
+  <a href="#what-i-learned" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p><img src="max.jpg" alt="Image From Max Headroom (1987)"></p>
+<p>Honestly, what I learned most while setting this all up is that I have a lot to learn. I&rsquo;d love to do a deep dive into how the Gluetun image works. I don&rsquo;t really understand OpenVPN on any kind of deep level, nor do I have more than a basic understanding of Docker networking. I certainly know more than I did before starting this project, but really it&rsquo;s just sparked my curiosity to keep digging.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>A quick note on this: I had issues getting the machine to recognize my M.2 SSD, which was frustrating. At first, I thought maybe I&rsquo;d bought a faulty drive, or that it just wasn&rsquo;t compatible. Thankfully I found an answer on <a href="https://forum.manjaro.org/t/can-t-see-new-m-2-ssd/34035">this message board</a> which suggested turning off all of the HP security settings in the BIOS. After I did this, the drive worked perfectly and I was able to install Linux without any issues. Were these security settings important? I&rsquo;ll let you know if I ever find out.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>If you&rsquo;re in the same boat, you can easily create the token on the Nord website. In <strong>Services &gt; NordVPN</strong> scroll all the way to the bottom to the section <strong>Manual Setup</strong>. Click on <strong>Setup NordVPN Manually</strong>. Here you can create a new token and password that will allow you to log into NordVPN via the Gluetun docker image.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+    
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Josh Alletto</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
