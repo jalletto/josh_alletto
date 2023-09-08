@@ -9,6 +9,7 @@
     <description>Recent content on Josh Alletto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+
     <lastBuildDate>Mon, 28 Aug 2023 11:10:34 -0500</lastBuildDate>
     
 	<atom:link href="https://joshalletto.com/index.xml" rel="self" type="application/rss+xml" />
@@ -69,7 +70,7 @@
         
         
           Let&amp;rsquo;s Learn About Systemd Units # Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
-Nix Turns 20. What the Hell Is It? # I spoke with a wide range of Nix users, from consultants, to hobbyists, to devs using Nix in production, and even a Nix contributor.
+Postgres Row-Level Security in Python and Django # What&amp;rsquo;s nice about RLS is that if a user tries to select or alter a row they don&amp;rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error.
           
         
         </description>
