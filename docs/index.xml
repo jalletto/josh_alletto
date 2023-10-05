@@ -9,11 +9,30 @@
     <description>Recent content on Josh Alletto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-
-    <lastBuildDate>Mon, 28 Aug 2023 11:10:34 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 28 Sep 2023 10:25:27 -0500</lastBuildDate>
     
 	<atom:link href="https://joshalletto.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Something I Built: TUI File Navigation and Batch Rename</title>
+      <link>https://joshalletto.com/posts/terminal-batch-rename/</link>
+      <pubDate>Thu, 28 Sep 2023 10:25:27 -0500</pubDate>
+      
+      <guid>https://joshalletto.com/posts/terminal-batch-rename/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          I had a lot of files on a server that needed to be renamed. At first I would just write a script to rename them. But soon this got really tedious. On my Mac I have a program called Transmino to do batch renaming of files. It let&amp;rsquo;s you find and replace in hundreds of files at once, use regex expressions, set prefixes, number files and way more. It&amp;rsquo;s great, but it&amp;rsquo;s graphical, and only for Mac.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Plexing and Torrenting on the Same Server: Let&#39;s Docker Network</title>
@@ -29,7 +48,7 @@
         
         
         
-          One Christmas long ago my brother and I got a Sega Genesis. We were thrilled. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it.
+          One Christmas long ago my brother and I got a Sega Genesis. We were thrilled and lost our shit. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it.
           
         
         </description>
