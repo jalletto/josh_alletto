@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Josh Alletto</title>
+    <title>Posts on Josh Alletto</title>
     
     
     
-    <link>https://joshalletto.com/</link>
-    <description>Recent content on Josh Alletto</description>
+    <link>https://joshalletto.com/posts/</link>
+    <description>Recent content in Posts on Josh Alletto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Sep 2023 10:25:27 -0500</lastBuildDate>
     
-	<atom:link href="https://joshalletto.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joshalletto.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -49,47 +49,6 @@
         
         
           One Christmas long ago my brother and I got a Sega Genesis. We were thrilled and lost our shit. But as soon as all the jumping around with joy had ended, my first impulse was not to run to the TV to set it up. What I really wanted to do was call my best friend Tom so I could tell him about it, because talking about a new toy is sometimes just as fun as playing with it.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://joshalletto.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://joshalletto.com/about/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-           I like to write, and code, and write about coding. 
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Published Articles</title>
-      <link>https://joshalletto.com/published-articles/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://joshalletto.com/published-articles/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Let&amp;rsquo;s Learn About Systemd Units # Lastly, since I know you were wondering what happens if you run sudo kill -9 1, I can tell you that on an Ubuntu EC2 machine, it does not trigger kernel panic or cause an explosive fire at Amazon, which is a bummer.
-Postgres Row-Level Security in Python and Django # What&amp;rsquo;s nice about RLS is that if a user tries to select or alter a row they don&amp;rsquo;t have access to, their query will return 0 rows, rather than throwing a permissions error.
           
         
         </description>

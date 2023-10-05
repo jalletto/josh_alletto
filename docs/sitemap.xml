@@ -2,11 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://joshalletto.com/</loc>
+    <lastmod>2023-09-28T10:25:27-05:00</lastmod>
+  </url><url>
+    <loc>https://joshalletto.com/posts/</loc>
+    <lastmod>2023-09-28T10:25:27-05:00</lastmod>
+  </url><url>
+    <loc>https://joshalletto.com/posts/terminal-batch-rename/</loc>
+    <lastmod>2023-09-28T10:25:27-05:00</lastmod>
+  </url><url>
+    <loc>https://joshalletto.com/posts/plex-setup/</loc>
+    <lastmod>2023-08-28T11:10:34-05:00</lastmod>
+  </url><url>
     <loc>https://joshalletto.com/about/</loc>
   </url><url>
     <loc>https://joshalletto.com/categories/</loc>
-  </url><url>
-    <loc>https://joshalletto.com/</loc>
   </url><url>
     <loc>https://joshalletto.com/published-articles/</loc>
   </url><url>

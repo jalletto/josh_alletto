@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Something I Built: TUI File Navigation and Batch Rename ::
+        Josh Alletto — Blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="I had a lot of files on a server that needed to be renamed. At first I would just write a script to rename them. But soon this got really tedious. On my Mac I have a program called Transmino to do batch renaming of files. It let&amp;rsquo;s you find and replace in hundreds of files at once, use regex expressions, set prefixes, number files and way more. It&amp;rsquo;s great, but it&amp;rsquo;s graphical, and only for Mac."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://joshalletto.com/posts/terminal-batch-rename/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://joshalletto.com/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://joshalletto.com/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://joshalletto.com/img/favicon.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Something I Built: TUI File Navigation and Batch Rename"/>
+<meta name="twitter:description" content="I had a lot of files on a server that needed to be renamed. At first I would just write a script to rename them. But soon this got really tedious. On my Mac I have a program called Transmino to do batch renaming of files. It let&rsquo;s you find and replace in hundreds of files at once, use regex expressions, set prefixes, number files and way more. It&rsquo;s great, but it&rsquo;s graphical, and only for Mac."/>
+
+
+
+<meta property="og:title" content="Something I Built: TUI File Navigation and Batch Rename" />
+<meta property="og:description" content="I had a lot of files on a server that needed to be renamed. At first I would just write a script to rename them. But soon this got really tedious. On my Mac I have a program called Transmino to do batch renaming of files. It let&rsquo;s you find and replace in hundreds of files at once, use regex expressions, set prefixes, number files and way more. It&rsquo;s great, but it&rsquo;s graphical, and only for Mac." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joshalletto.com/posts/terminal-batch-rename/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-28T10:25:27-05:00" />
+<meta property="article:modified_time" content="2023-09-28T10:25:27-05:00" />
+
+
+
+
+
+
+  </head>
+  <body class="light-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Josh Alletto</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/published-articles">Published Articles</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/published-articles">Published Articles</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Something I Built: TUI File Navigation and Batch Rename</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          2023-09-28
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>I had a lot of files on a server that needed to be renamed. At first I would just write a script to rename them. But soon this got really tedious. On my Mac I have a program called <a href="https://www.transnomino.com/">Transmino</a> to do batch renaming of files. It let&rsquo;s you find and replace in hundreds of files at once, use regex expressions, set prefixes, number files and way more. It&rsquo;s great, but it&rsquo;s graphical, and only for Mac. I needed something I could use on a Linux server with no GUI. There were some solutions out there. I believe <a href="https://github.com/jarun/nnn">nnn</a> can do this or at least something similar.</p>
+<p>But pretty quickly I realized that this wouldn&rsquo;t be that hard to just build myself, and since I really enjoy making terminal apps, it would be fun to make. And it was.</p>
+<h2 id="a-simple-file-navigator">
+  A Simple File Navigator
+  <a href="#a-simple-file-navigator" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p><img src="tree.gif" alt="A Tree View of Your Files"></p>
+<p>I called the app <code>rn</code> for Rename. I now see that this is way too similar to <code>rm</code>, so that was probably a mistake. Oh well.</p>
+<p>When you run it, it uses your current directory as root for a tree structure. This was helpful for me when I have a lot of different documents to rename so I can track my progress. A lot of the times the rename is just removing a few characters. In other cases I need to complete change the original file name. Often I would want to be able to see the files and the folders together, since a common use case for me was to rename the folder and then have to rename the files to match in some way. So something similar to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>└── This is Great (2001)/
+</span></span><span style="display:flex;"><span>    ├── This is Great (2001).file
+</span></span><span style="display:flex;"><span>    └── This is Great (2001).txt
+</span></span></code></pre></div><p>The other thing I like is that I can rename everything using a form, which has the added bonus of allowing me to uses spaces and special characters without having to escape them the way you do when you rename something with <code>mv</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mv file.txt That<span style="color:#ae81ff">\ </span>get<span style="color:#ae81ff">\&#39;</span>s<span style="color:#ae81ff">\ </span>really<span style="color:#ae81ff">\ </span>annoying<span style="color:#ae81ff">\ \(</span>as<span style="color:#ae81ff">\ </span>you<span style="color:#ae81ff">\ </span>can<span style="color:#ae81ff">\ </span>see<span style="color:#ae81ff">\)</span>.txt
+</span></span></code></pre></div><p>I can also delete files from here. I added a check to ask &ldquo;Are you sure?&rdquo; after several disasters.</p>
+<h2 id="tui-batch-file-rename">
+  TUI Batch File Rename
+  <a href="#tui-batch-file-rename" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>But the most useful feature by far, and the real reason I built this, is the ability to open a folder from the tree and rename all the files at once.</p>
+<p><img src="batch.gif" alt="Renaming in Batches"></p>
+<p>Right now this only works with a simple find and replace, but I do plan on adding the ability to use regex soon.</p>
+<h2 id="using-tview-and-tcell">
+  Using Tview and Tcell
+  <a href="#using-tview-and-tcell" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>I ended up using Go because I was already familar with the <a href="https://github.com/rivo/tview">Tview</a> and <a href="https://github.com/gdamore/tcell">Tcell</a> packages. I&rsquo;d used tcell directly when creating a <a href="https://earthly.dev/blog/pongo/">Pong game</a> for the terminal. Tview builds on top of Tcell by giving you different components. Basic structures like text fields, list, and forms. It also gives you an easy to use flexbox type layout. If you&rsquo;re interested in getting started with Tview, I wrote a short <a href="https://earthly.dev/blog/tui-app-with-go/">tutorial</a> about it.</p>
+<h2 id="the-code">
+  The Code
+  <a href="#the-code" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>This is just an app for my personal use, but if you&rsquo;re interested, the code is all on my <a href="https://github.com/jalletto/rn">Github</a>. I will say that it&rsquo;s sort of a mess. This is the first real thing I&rsquo;ve built with Go and I think the code is organized in a stupid way. But it&rsquo;s a small app and it works. Still, I&rsquo;d be open to any criticism or ideas for improvement. Feel free to make a condescending PR.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://joshalletto.com/posts/plex-setup/">
+                  <span class="button__text">Plexing and Torrenting on the Same Server: Let&#39;s Docker Network</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Josh Alletto</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
